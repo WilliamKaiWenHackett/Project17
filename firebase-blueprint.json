@@ -1,0 +1,27 @@
+{
+  "entities": {
+    "UserSheet": {
+      "title": "UserSheet",
+      "description": "The habit tracker sheet for a user.",
+      "type": "object",
+      "properties": {
+        "incentiffs": { "type": "number" },
+        "totalCompletions": { "type": "object" },
+        "currentWeek": { "type": "object" },
+        "activeGoals": { "type": "array" },
+        "birthday": { "type": "string" },
+        "streaks": { "type": "object" },
+        "timingData": { "type": "object" },
+        "videoUploads": { "type": "object" },
+        "lastUpdated": { "type": "string", "format": "date-time" }
+      },
+      "required": ["incentiffs", "activeGoals", "lastUpdated"]
+    }
+  },
+  "firestore": {
+    "/sheets/{userId}": {
+      "schema": "UserSheet",
+      "description": "A user's habit tracker data."
+    }
+  }
+}
